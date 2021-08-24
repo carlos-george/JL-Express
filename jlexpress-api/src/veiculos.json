@@ -1,0 +1,29 @@
+[
+  {
+    "placa": "JIQ2286",
+    "marca": "Mercedes-Benz",
+    "modelo": "Sprinter ",
+    "ano": "2015",
+    "renavam": "75962051464",
+    "cor": "Verde",
+    "imagem": ""
+  },
+  {
+    "placa": "JKF9217",
+    "marca": "Renault",
+    "modelo": "Renault Kangoo",
+    "ano": "JKF9217",
+    "renavam": "93800631927",
+    "cor": "Prata",
+    "imagem": ""
+  },
+  {
+    "placa": "JIE8521",
+    "marca": "Fiat",
+    "modelo": "Fiat Ducato",
+    "ano": "2010",
+    "renavam": "19836618891",
+    "cor": "Branca",
+    "imagem": ""
+  }
+]

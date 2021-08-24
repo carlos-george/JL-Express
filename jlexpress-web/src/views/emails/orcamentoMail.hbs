@@ -1,0 +1,45 @@
+<style>
+    .container {
+        width: 400px;
+    }
+
+    .fields {
+        padding: 15px;
+        border-radius: 5px;
+        border: 1px solid #000;
+    }
+
+    .fields .field-group label {
+        font-weight: bold;
+    }
+
+    .fields .field-group {
+        margin-bottom: 5px;
+    }
+</style>
+
+<div class="container">
+    <h2>Informações da Mensagem:</h2>
+    <div class="fields">
+        <div class="field-group">
+            <label for="nome">Nome:</label>
+            <span id="nome">{{nome}}</span>
+        </div>
+        <div class="field-group">
+            <label for="email">Email:</label>
+            <span id="email">{{email}}</span>
+        </div>
+        <div class="field-group">
+            <label for="telefone">Telefone:</label>
+            <span id="telefone">{{telefone}}</span>
+        </div>
+        <div class="field-group">
+            <label for="assunto">Assunto:</label>
+            <span id="assunto">{{assunto}}</span>
+        </div>
+        <div class="field-group">
+            <label for="mensagem">Mensagem:</label>
+            <span id="mensagem">{{mensagem}}</span>
+        </div>
+    </div>
+</div>

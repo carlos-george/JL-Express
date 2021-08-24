@@ -1,0 +1,2192 @@
+  <style>
+    body {
+      width: 100vw;
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    header {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    header .header-top {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .header-top img {
+      width: 200px;
+    }
+
+    header .dados-veiculo {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 5px;
+    }
+    header .dados-veiculo label {
+      font-size: 20px;
+    }
+
+    header .dados-veiculo label + label {
+      margin-top: 5px;
+    }
+
+    header .dados-veiculo label span {
+      font-weight: bold;
+    }
+
+    main {
+      width: 50%;
+    }
+
+    main .fleet-layout {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    main .fleet-layout .fleet-container {
+      width: 420px;
+      position: relative;
+    }
+    main .fleet-layout .fleet-container img {
+      width: 420px;
+    }
+
+    main .headerLayout {
+      width: 100%;
+      background: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+    main .headerquestions {
+      width: 100%;
+      background: #ddd;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 5px;
+      margin-top: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    main .headerquestions span + span {
+      margin-left: 28px;
+    }
+
+    main .headerQuestionsTextSN {
+      width: 100%;
+      background: #ddd;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 5px;
+      margin-top: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    main .headerQuestionsTextSN span + span {
+      margin-left: 34px;
+    }
+
+    main .containerAnswers {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      padding: 5px;
+    }
+
+    main .answersTableLineFirst {
+      background-color: #dcdcdc;
+    }
+
+    .answersTableLineSecond {
+      background-color: #cacaca;
+    }
+
+    main .answerChecks {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    main .not-check {
+      width: 15px;
+      height: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      border: 1px solid #f28627;
+      background-color: #fff;
+    }
+
+    main .check {
+      width: 15px;
+      height: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      border: 1px solid #f28627;
+      background-color: #f28627;
+    }
+
+    main .check svg {
+      width: 10px;
+      height: 10px;
+      fill: #fff;
+    }
+
+     main .check + .check,
+    .not-check + .not-check,
+    .not-check + .check {
+      margin-left: 45px;
+    }
+
+    main .card-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    main .card-wrapper .card-fields {
+      width: 100%;
+    }
+
+    main .card-fields + .card-fields {
+      margin-left: 15px;
+    }
+  </style>
+    <header>
+      <div class="header-top">
+        <img src="../../assets/logoJLExpress.png" alt="JL Express" />
+        <span>{{currentDate}}</span>
+      </div>
+      <div class="dados-veiculo">
+        <label>Responsável: <span>{{responsavel}}</span></label>
+        <label>Veículo: <span>{{carFleet.modelo}}</span></label>
+        <label>Placa: <span>{{carFleet.placa}}</span></label>
+      </div>
+    </header>
+    <main>
+      <div class="headerLayout">
+        <span class="headerLayoutText">Área do Veículo Afetada</span>
+      </div>
+      <div class="fleet-layout">
+        <div class="fleet-container">
+            <img
+                src="../../../uploads/Kangoo.png"
+                alt="Kangoo"
+                class="car-layout"
+            />
+        </div>
+      </div>
+
+      <div class="headerLayout">
+        <span class="headerLayoutText">Dados Gerais</span>
+      </div>
+
+      <div class="headerquestions">
+        <span>Bom</span>
+        <span>Méd.</span>
+        <span>Ruim</span>
+      </div>
+
+      <div class="containerAnswers answersTableLineSecond">
+        <div class="answerText">
+          <span>Limp. Externa</span>
+        </div>
+        <div class="answerChecks">
+            {{#if values.limpExter.valueA}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+            {{#if values.limpExter.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+            {{#if values.limpExter.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+        </div>
+      </div>
+
+      <div class="containerAnswers answersTableLineFirst">
+        <div class="answerText">
+          <span>Limp. Interna</span>
+        </div>
+        <div class="answerChecks">
+            {{#if values.limpInterna.valueA}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+            {{#if values.limpInterna.valueB}}
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              />
+            </svg>
+          </div>
+          {{else}}
+          <div class="not-check"></div>
+          {{/if}}
+            {{#if values.limpInterna.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+        </div>
+      </div>
+
+      <div class="containerAnswers answersTableLineSecond">
+        <div class="answerText">
+          <span>Pneus</span>
+        </div>
+        <div class="answerChecks">
+            {{#if values.pneus.valueA}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+            {{#if values.pneus.valueB}}
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              />
+            </svg>
+          </div>
+          {{else}}
+          <div class="not-check"></div>
+          {{/if}}
+            {{#if values.pneus.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+        </div>
+      </div>
+
+      <div class="containerAnswers answersTableLineFirst">
+        <div class="answerText">
+          <span>Estepe</span>
+        </div>
+        <div class="answerChecks">
+            {{#if values.estepe.valueA}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+            {{#if values.estepe.valueB}}
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              />
+            </svg>
+          </div>
+          {{else}}
+          <div class="not-check"></div>
+          {{/if}}
+            {{#if values.estepe.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+        </div>
+      </div>
+
+      <div class="containerAnswers answersTableLineSecond">
+        <div class="answerText">
+          <span>Caçamba</span>
+        </div>
+        <div class="answerChecks">
+            {{#if values.cacamba.valueA}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+            {{#if values.cacamba.valueB}}
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              />
+            </svg>
+          </div>
+          {{else}}
+          <div class="not-check"></div>
+          {{/if}}
+            {{#if values.cacamba.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+        </div>
+      </div>
+
+      <div class="headerLayout">
+        <span class="headerLayoutText">Luzes Traseira</span>
+      </div>
+
+      <div class="headerQuestionsTextSN">
+        <span>Sim</span>
+        <span>Não</span>
+        <span>N/A</span>
+      </div>
+
+      <div class="containerAnswers answersTableLineSecond">
+        <div class="answerText">
+          <span>Placa</span>
+        </div>
+        <div class="answerChecks">
+            {{#if values.placa.valueA}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+            {{#if values.placa.valueB}}
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              />
+            </svg>
+          </div>
+          {{else}}
+          <div class="not-check"></div>
+          {{/if}}
+            {{#if values.placa.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+        </div>
+      </div>
+
+      <div class="card-wrapper">
+        <div class="card-fields">
+          <div class="headerLayout">
+            <span class="headerLayoutText">Direita</span>
+          </div>
+
+          <div class="headerQuestionsTextSN">
+            <span>Sim</span>
+            <span>Não</span>
+            <span>N/A</span>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Luz</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.trasDireitaLuz.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.trasDireitaLuz.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.trasDireitaLuz.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Luz de Ré</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.trasDireitaLuzRe.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.trasDireitaLuzRe.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.trasDireitaLuzRe.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Luz de Freio</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.trasDireitaLuzFreio.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.trasDireitaLuzFreio.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.trasDireitaLuzFreio.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Seta</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.trasDireitaSeta.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.trasDireitaSeta.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.trasDireitaSeta.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+        <div class="card-fields">
+          <div class="headerLayout">
+            <span class="headerLayoutText">Esquerda</span>
+          </div>
+
+          <div class="headerQuestionsTextSN">
+            <span>Sim</span>
+            <span>Não</span>
+            <span>N/A</span>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Luz</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.trasEsquerdaLuz.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.trasEsquerdaLuz.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.trasEsquerdaLuz.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Luz de Ré</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.trasEsquerdaLuzRe.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.trasEsquerdaLuzRe.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.trasEsquerdaLuzRe.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Luz de Freio</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.trasEsquerdaLuzFreio.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.trasEsquerdaLuzFreio.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.trasEsquerdaLuzFreio.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Seta</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.trasEsquerdaSeta.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.trasEsquerdaSeta.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.trasEsquerdaSeta.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="headerLayout">
+        <span class="headerLayoutText">Luzes Dianteira</span>
+      </div>
+
+      <div class="headerQuestionsTextSN">
+        <span>Sim</span>
+        <span>Não</span>
+        <span>N/A</span>
+      </div>
+
+      <div class="containerAnswers answersTableLineSecond">
+        <div class="answerText">
+          <span>Placa</span>
+        </div>
+        <div class="answerChecks">
+            {{#if values.diantPlaca.valueA}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+            {{#if values.diantPlaca.valueB}}
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              />
+            </svg>
+          </div>
+          {{else}}
+          <div class="not-check"></div>
+          {{/if}}
+            {{#if values.diantPlaca.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+            {{else}}
+                <div class="not-check"></div>
+            {{/if}}
+        </div>
+      </div>
+
+      <div class="card-wrapper">
+        <div class="card-fields">
+          <div class="headerLayout">
+            <span class="headerLayoutText">Direita</span>
+          </div>
+
+          <div class="headerQuestionsTextSN">
+            <span>Sim</span>
+            <span>Não</span>
+            <span>N/A</span>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Farol Alto</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.diantDireitaFarolAlto.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.diantDireitaFarolAlto.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.diantDireitaFarolAlto.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Farol Baixo</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.diantDireitaFarolBaixo.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.diantDireitaFarolBaixo.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.diantDireitaFarolBaixo.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Neblina</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.diantDireitaNeblina.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.diantDireitaNeblina.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.diantDireitaNeblina.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Seta</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.diantDireitaSeta.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.diantDireitaSeta.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.diantDireitaSeta.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+        <div class="card-fields">
+          <div class="headerLayout">
+            <span class="headerLayoutText">Esquerda</span>
+          </div>
+
+          <div class="headerQuestionsTextSN">
+            <span>Sim</span>
+            <span>Não</span>
+            <span>N/A</span>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Farol Alto</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.diantEsquerdaFarolAlto.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.diantEsquerdaFarolAlto.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.diantEsquerdaFarolAlto.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Farol Baixo</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.diantEsquerdaFarolBaixo.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.diantEsquerdaFarolBaixo.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.diantEsquerdaFarolBaixo.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Neblina</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.diantEsquerdaNeblina.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.diantEsquerdaNeblina.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.diantEsquerdaNeblina.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Seta</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.diantEsquerdaSeta.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.diantEsquerdaSeta.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.diantEsquerdaSeta.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-wrapper">
+        <div class="card-fields">
+          <div class="headerLayout">
+            <span class="headerLayoutText">Segurança</span>
+          </div>
+
+          <div class="headerQuestionsTextSN">
+            <span>Sim</span>
+            <span>Não</span>
+            <span>N/A</span>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Alarme</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguAlarme.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguAlarme.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguAlarme.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Buzina</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguBuzina.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguBuzina.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguBuzina.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Chave de Roda</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguChaveRoda.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguChaveRoda.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguChaveRoda.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Cinto</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguCinto.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguCinto.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguCinto.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Documento</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguDocumento.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguDocumento.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguDocumento.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Extintor</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguExtintor.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguExtintor.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguExtintor.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Limpadores</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguLimpador.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguLimpador.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguLimpador.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Macaco</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguMacaco.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguMacaco.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguMacaco.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Painel</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguPainel.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguPainel.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguPainel.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Retrovisor Interno</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguRetroInterno.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguRetroInterno.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguRetroInterno.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Retrovisor Direito</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguRetroDireito.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguRetroDireito.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguRetroDireito.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Retrovisor Esquerdo</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguRetroEsquerdo.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguRetroEsquerdo.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguRetroEsquerdo.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Travas</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguTrava.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguTrava.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguTrava.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Triângulo</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.seguTriangulo.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.seguTriangulo.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.seguTriangulo.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+        <div class="card-fields">
+          <div class="headerLayout">
+            <span class="headerLayoutText">Motor</span>
+          </div>
+
+          <div class="headerQuestionsTextSN">
+            <span>Sim</span>
+            <span>Não</span>
+            <span>N/A</span>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Acelerador</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.motorAcelerador.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.motorAcelerador.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.motorAcelerador.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Água do Limpador</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.motorAguaLimpador.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.motorAguaLimpador.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.motorAguaLimpador.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Água do Radiador</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.motorAguaRadiador.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.motorAguaRadiador.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.motorAguaRadiador.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Embreagem</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.motorEmbreagem.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.motorEmbreagem.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.motorEmbreagem.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Freio</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.motorFreio.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.motorFreio.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.motorFreio.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Freio de Mão</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.motorFreioMao.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.motorFreioMao.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.motorFreioMao.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Óleo de Freio</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.motorOleoFreio.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.motorOleoFreio.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.motorOleoFreio.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Óleo de Motor</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.motorOleoMotor.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.motorOleoMotor.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.motorOleoMotor.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Tanque de Partida</span>
+            </div>
+            <div class="answerChecks">
+                {{#if values.motorTanquePartida.valueA}}
+                    <div class="check">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                        />
+                        </svg>
+                    </div>
+                {{else}}
+                    <div class="not-check"></div>
+                {{/if}}
+              {{#if values.motorTanquePartida.valueB}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+              {{#if values.motorTanquePartida.valueC}}
+                <div class="check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path
+                        d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                    />
+                    </svg>
+                </div>
+              {{else}}
+                <div class="not-check"></div>
+              {{/if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>

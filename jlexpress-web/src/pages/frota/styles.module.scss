@@ -1,0 +1,214 @@
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+
+  .addVeiculo {
+    width: 100%;
+    padding: 20px;
+
+    .header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    form {
+      width: 100%;
+      margin-top: 1em;
+
+      .formGroup {
+        width: 100%;
+        margin-bottom: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .inputGroup {
+          width: 100%;
+
+          input,
+          select {
+            width: 100%;
+            flex: 1;
+            background: #ddd;
+            border-radius: 8px;
+            height: 2.5em;
+            border: 1px solid var(--blue-800);
+            padding: 10px 18px;
+            font-size: 16px;
+            outline: none;
+            color: var(--orange-500);
+
+            &::placeholder {
+              color: #6b7986;
+            }
+            &:focus {
+              border: 1px solid var(--orange-500);
+            }
+          }
+        }
+        .inputGroup + .inputGroup {
+          margin-left: 1em;
+        }
+        img {
+          width: 350px;
+        }
+      }
+
+      button {
+        width: 100%;
+        background-color: var(--orange-500);
+        padding: 0.5em;
+        color: var(--white);
+        border-radius: 0.5em;
+        border: 1px solid var(--blue-400);
+        font-size: 1em;
+        text-transform: uppercase;
+        outline: none;
+
+        transition: background-color 0.4s;
+        &:disabled {
+          cursor: not-allowed;
+          opacity: 0.5;
+        }
+
+        &:hover:not(:disabled) {
+          background-color: var(--blue-500);
+        }
+      }
+
+      .formVeiculoEdit {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & > .buttonEdit {
+          width: 100%;
+          background-color: var(--orange-500);
+          padding: 0.5em;
+          color: var(--white);
+          border-radius: 0.5em;
+          border: 1px solid var(--blue-400);
+          font-size: 1em;
+          text-transform: uppercase;
+          outline: none;
+
+          transition: background-color 0.4s;
+          &:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+          }
+
+          &:hover:not(:disabled) {
+            background-color: var(--blue-500);
+          }
+        }
+
+        & > .buttonDelete {
+          width: 100%;
+          background-color: #e33645;
+          padding: 0.5em;
+          color: var(--white);
+          border-radius: 0.5em;
+          border: 1px solid #b32834;
+          font-size: 1em;
+          text-transform: uppercase;
+          outline: none;
+
+          transition: background-color 0.4s;
+          &:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+          }
+
+          &:hover:not(:disabled) {
+            background-color: var(--blue-500);
+          }
+        }
+        & > .buttonCancelar {
+          width: 100%;
+          background-color: #25d366;
+          padding: 0.5em;
+          color: var(--white);
+          border-radius: 0.5em;
+          border: 1px solid #1c9c4b;
+          font-size: 1em;
+          text-transform: uppercase;
+          outline: none;
+
+          transition: background-color 0.4s;
+          &:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+          }
+
+          &:hover:not(:disabled) {
+            background-color: var(--blue-500);
+          }
+        }
+
+        button + button {
+          margin-left: 1em;
+        }
+      }
+
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+          margin-right: 0.3em;
+        }
+      }
+    }
+  }
+
+  .listVeiculos {
+    width: 100%;
+    padding: 20px;
+
+    .cardsVeiculos {
+      margin-top: 1em;
+      flex: 1;
+      overflow-y: scroll;
+
+      .card {
+        width: 100%;
+        margin-bottom: 1em;
+        padding: 10px;
+        border: 1px solid var(--orange-500);
+        border-radius: 8px;
+        // background: #ddd;
+        background: var(--blue-800);
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: row;
+        cursor: pointer;
+
+        .cardGroup {
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+          flex-direction: column;
+          label {
+            cursor: pointer;
+            color: var(--white);
+            span {
+              color: var(--orange-500);
+            }
+          }
+
+          label + label {
+            margin-top: 0.5em;
+          }
+        }
+      }
+    }
+  }
+}

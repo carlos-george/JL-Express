@@ -1,0 +1,1128 @@
+<html>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      width: 100vw;
+      background-color: #fff;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    header {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    header .header-top {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header .header-top img {
+      width: 200px;
+    }
+
+    header .dados-veiculo {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-top: 5px;
+    }
+    header .dados-veiculo label {
+      font-size: 20px;
+    }
+
+    header .dados-veiculo label + label {
+      margin-top: 5px;
+    }
+
+    header .dados-veiculo label span {
+      font-weight: bold;
+    }
+
+    main {
+      width: 50%;
+    }
+
+    main .fleet-layout {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    main .fleet-layout .fleet-container {
+      width: 420px;
+      position: relative;
+    }
+    main .fleet-layout .fleet-container img {
+      width: 420px;
+    }
+
+    main .headerLayout {
+      width: 100%;
+      background: #ddd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px;
+      margin-top: 10px;
+      border-radius: 10px;
+    }
+    main .headerquestions {
+      width: 100%;
+      background: #ddd;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 5px;
+      margin-top: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    main .headerquestions span + span {
+      margin-left: 28px;
+    }
+
+    main .headerQuestionsTextSN {
+      width: 100%;
+      background: #ddd;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 5px;
+      margin-top: 10px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    main .headerQuestionsTextSN span + span {
+      margin-left: 34px;
+    }
+
+    main .containerAnswers {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+      padding: 5px;
+    }
+
+    main .answersTableLineFirst {
+      background-color: #dcdcdc;
+    }
+
+    .answersTableLineSecond {
+      background-color: #cacaca;
+    }
+
+    main .answerChecks {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: row;
+    }
+
+    main .not-check {
+      width: 15px;
+      height: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      border: 1px solid #f28627;
+      background-color: #fff;
+    }
+
+    main .check {
+      width: 15px;
+      height: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      border: 1px solid #f28627;
+      background-color: #f28627;
+    }
+
+    main .check svg {
+      width: 10px;
+      height: 10px;
+      fill: #fff;
+    }
+
+    main .check + .not-check,
+    .not-check + .not-check,
+    .not-check + .check {
+      margin-left: 45px;
+    }
+
+    main .card-wrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    main .card-wrapper .card-fields {
+      width: 100%;
+    }
+
+    main .card-fields + .card-fields {
+      margin-left: 15px;
+    }
+
+    .fleet-check {
+      position: absolute;
+      z-index: 1000;
+    }
+  </style>
+  <body>
+    <header>
+      <div class="header-top">
+        <img src="../../assets/logoJLExpress.png" alt="JL Express" />
+        <span>02/08/2021</span>
+      </div>
+      <div class="dados-veiculo">
+        <label
+          >Responsável:
+          <span>Marcos Vinicius Francisco Erick Ribeiro</span></label
+        >
+        <label>Veículo: <span>Renault Kangoo</span></label>
+        <label>Placa: <span>JKF9217</span></label>
+      </div>
+    </header>
+    <main>
+      <div class="headerLayout">
+        <span class="headerLayoutText">Área do Veículo Afetada</span>
+      </div>
+      <div class="fleet-layout">
+        <div class="fleet-container">
+          <img
+            src="../../../uploads/Kangoo.png"
+            alt="Kangoo"
+            class="car-layout"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 1280.000000 1280.000000"
+            style="position: absolute; z-index: 10; top: 71px; left: 39.5px"
+          >
+            <g
+              transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
+              stroke="none"
+              fill="#DB6161"
+            >
+              <path
+                d="M3137 9659 l-537 -539 1360 -1360 1360 -1360 -1360 -1360 -1360
+         -1360 540 -540 540 -540 1360 1360 1360 1360 1360 -1360 1360 -1360 540 540
+         540 540 -1360 1360 -1360 1360 1360 1360 1360 1360 -540 540 -540 540 -1360
+         -1360 -1360 -1360 -1360 1360 c-748 748 -1361 1360 -1362 1359 -2 0 -245 -243
+         -541 -540z"
+              />
+            </g>
+          </svg>
+        </div>
+      </div>
+
+      <div class="headerLayout">
+        <span class="headerLayoutText">Dados Gerais</span>
+      </div>
+
+      <div class="headerquestions">
+        <span>Bom</span>
+        <span>Méd.</span>
+        <span>Ruim</span>
+      </div>
+
+      <div class="containerAnswers answersTableLineSecond">
+        <div class="answerText">
+          <span>Limp. Externa</span>
+        </div>
+        <div class="answerChecks">
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              />
+            </svg>
+          </div>
+          <div class="not-check"></div>
+          <div class="not-check"></div>
+        </div>
+      </div>
+
+      <div class="containerAnswers answersTableLineFirst">
+        <div class="answerText">
+          <span>Limp. Interna</span>
+        </div>
+        <div class="answerChecks">
+          <div class="not-check"></div>
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              />
+            </svg>
+          </div>
+          <div class="not-check"></div>
+        </div>
+      </div>
+
+      <div class="containerAnswers answersTableLineSecond">
+        <div class="answerText">
+          <span>Pneus</span>
+        </div>
+        <div class="answerChecks">
+          <div class="not-check"></div>
+          <div class="not-check"></div>
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="containerAnswers answersTableLineFirst">
+        <div class="answerText">
+          <span>Estepe</span>
+        </div>
+        <div class="answerChecks">
+          <div class="not-check"></div>
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              />
+            </svg>
+          </div>
+          <div class="not-check"></div>
+        </div>
+      </div>
+
+      <div class="containerAnswers answersTableLineSecond">
+        <div class="answerText">
+          <span>Caçamba</span>
+        </div>
+        <div class="answerChecks">
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              />
+            </svg>
+          </div>
+          <div class="not-check"></div>
+          <div class="not-check"></div>
+        </div>
+      </div>
+
+      <div class="headerLayout">
+        <span class="headerLayoutText">Luzes Traseira</span>
+      </div>
+
+      <div class="headerQuestionsTextSN">
+        <span>Sim</span>
+        <span>Não</span>
+        <span>N/A</span>
+      </div>
+
+      <div class="containerAnswers answersTableLineSecond">
+        <div class="answerText">
+          <span>Placa</span>
+        </div>
+        <div class="answerChecks">
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              />
+            </svg>
+          </div>
+          <div class="not-check"></div>
+          <div class="not-check"></div>
+        </div>
+      </div>
+
+      <div class="card-wrapper">
+        <div class="card-fields">
+          <div class="headerLayout">
+            <span class="headerLayoutText">Direita</span>
+          </div>
+
+          <div class="headerQuestionsTextSN">
+            <span>Sim</span>
+            <span>Não</span>
+            <span>N/A</span>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Luz</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Luz de Ré</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Luz de Freio</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Seta</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-fields">
+          <div class="headerLayout">
+            <span class="headerLayoutText">Esquerda</span>
+          </div>
+
+          <div class="headerQuestionsTextSN">
+            <span>Sim</span>
+            <span>Não</span>
+            <span>N/A</span>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Luz</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Luz de Ré</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Luz de Freio</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Seta</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="headerLayout">
+        <span class="headerLayoutText">Luzes Dianteira</span>
+      </div>
+
+      <div class="headerQuestionsTextSN">
+        <span>Sim</span>
+        <span>Não</span>
+        <span>N/A</span>
+      </div>
+
+      <div class="containerAnswers answersTableLineSecond">
+        <div class="answerText">
+          <span>Placa</span>
+        </div>
+        <div class="answerChecks">
+          <div class="not-check"></div>
+          <div class="check">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path
+                d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+              />
+            </svg>
+          </div>
+          <div class="not-check"></div>
+        </div>
+      </div>
+
+      <div class="card-wrapper">
+        <div class="card-fields">
+          <div class="headerLayout">
+            <span class="headerLayoutText">Direita</span>
+          </div>
+
+          <div class="headerQuestionsTextSN">
+            <span>Sim</span>
+            <span>Não</span>
+            <span>N/A</span>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Farol Alto</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Farol Baixo</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Neblina</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Seta</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-fields">
+          <div class="headerLayout">
+            <span class="headerLayoutText">Esquerda</span>
+          </div>
+
+          <div class="headerQuestionsTextSN">
+            <span>Sim</span>
+            <span>Não</span>
+            <span>N/A</span>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Farol Alto</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Farol Baixo</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Neblina</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Seta</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-wrapper">
+        <div class="card-fields">
+          <div class="headerLayout">
+            <span class="headerLayoutText">Segurança</span>
+          </div>
+
+          <div class="headerQuestionsTextSN">
+            <span>Sim</span>
+            <span>Não</span>
+            <span>N/A</span>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Alarme</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Buzina</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Chave de Roda</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Cinto</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Documento</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Extintor</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Limpadores</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Macaco</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Painel</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Retrovisor Interno</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Retrovisor Direito</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Retrovisor Esquerdo</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Travas</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Triângulo</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-fields">
+          <div class="headerLayout">
+            <span class="headerLayoutText">Motor</span>
+          </div>
+
+          <div class="headerQuestionsTextSN">
+            <span>Sim</span>
+            <span>Não</span>
+            <span>N/A</span>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Acelerador</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Água do Limpador</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Água do Radiador</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Embreagem</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Freio</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Freio de Mão</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Óleo de Freio</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineFirst">
+            <div class="answerText">
+              <span>Óleo de Motor</span>
+            </div>
+            <div class="answerChecks">
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+
+          <div class="containerAnswers answersTableLineSecond">
+            <div class="answerText">
+              <span>Tanque de Partida</span>
+            </div>
+            <div class="answerChecks">
+              <div class="not-check"></div>
+              <div class="check">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                  <path
+                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"
+                  />
+                </svg>
+              </div>
+              <div class="not-check"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

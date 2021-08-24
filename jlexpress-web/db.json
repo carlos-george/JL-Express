@@ -1,0 +1,34 @@
+{
+  "veiculos": [
+    {
+      "id": 1,
+      "placa": "JJO0468",
+      "marca": "Renault",
+      "modelo": "Renault Kangoo",
+      "ano": "2020",
+      "renavam": "84603788360",
+      "cor": "Prata"
+    },
+    {
+      "id": 2,
+      "placa": "JJV0916",
+      "marca": "Fiat",
+      "modelo": "Fiat Ducato",
+      "ano": "2010",
+      "renavam": "07300850252",
+      "cor": "Vermelho"
+    },
+    {
+      "placa": "JJT7365",
+      "marca": "Mercedes-Benz",
+      "modelo": "Sprinter",
+      "ano": "2015",
+      "renavam": "90955995774",
+      "cor": "Branca",
+      "anoModelo": "4",
+      "anoFabrica": "4",
+      "chassi": "1",
+      "id": 3
+    }
+  ]
+}
