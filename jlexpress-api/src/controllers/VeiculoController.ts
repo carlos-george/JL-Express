@@ -68,7 +68,8 @@ class VeiculoController {
         const newVeiculos = veiculos.map((car: any) => {
             return {
                 ...car._doc,
-                imagem: `${process.env.APP_IMAGES_URL}/${car._doc.imagem}`
+                // imagem: `${process.env.APP_IMAGES_URL}/${car._doc.imagem}`
+                imagem: `${car._doc.imagem}`
             }
         })
 
