@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
 import path from 'path';
 import fs from 'fs';
-import { format, parseISO } from 'date-fns';
+import { format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
 import VeiculoModel from '../models/Veiculo';
+import UserModel from '../models/User';
 import { AppErrors } from "../errors/AppErrors";
 
 class VeiculoController {
@@ -108,17 +109,32 @@ class VeiculoController {
     }
 
     async sendChecklist(request: Request, response: Response) {
-        const { values, carFleet, listChecks } = request.body;
+        const { values, carFleet, listChecks, fleetWidth } = request.body;
+
+        const { id } = request.user;
+
+        const user = await UserModel.findById({ _id: id })
+
+        if (!user) throw new AppErrors('Usuário não encotrado.');
 
         const currentDate = format(new Date(), 'dd/MM/y', {
             locale: ptBR
         });
 
+        const newListChecks = listChecks.map((item: { top: number, left: number }) => {
+            return {
+                ...item,
+                top: item.top + 10
+            }
+        });
+
         const data = {
             values,
             carFleet,
-            listChecks,
-            currentDate
+            listChecks: newListChecks,
+            currentDate,
+            fleetWidth,
+            responsible: user.name
         };
 
         console.log('Data: ', data);

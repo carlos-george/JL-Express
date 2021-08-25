@@ -24,8 +24,10 @@ routes.get('/veiculos/:placa', auth, veiculoController.getCar);
 routes.post('/veiculos', auth, veiculoController.create);
 routes.put('/veiculos/:id', auth, veiculoController.update);
 routes.delete('/veiculos/:id', auth, veiculoController.delete);
-routes.get('/veiculos/images', auth, veiculoController.images);
 routes.post('/enviar-checklist', auth, veiculoController.sendChecklist);
+
+//Layouts dos veiculos imagens
+routes.get('/layouts', auth, veiculoController.images);
 
 ///Users
 routes.post('/users', userController.create);

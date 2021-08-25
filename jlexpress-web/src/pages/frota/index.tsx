@@ -74,7 +74,7 @@ export default function Frota({ isAuthenticated }: FrotaProps) {
 
     useEffect(() => {
         atualizarListaVeiculos();
-        api.get('/api/veiculos/images').then(response => {
+        api.get('/api/layouts').then(response => {
 
             const { listImages } = response.data;
             setLayouts(listImages);

@@ -25,10 +25,11 @@ class UserController {
 
     async create(request: Request, response: Response) {
 
-        const { username, birthday } = request.body;
+        const { username, name, birthday } = request.body;
 
         const schema = yup.object().shape({
             username: yup.string().required(),
+            name: yup.string().required(),
             birthday: yup.string().required(),
         });
 
@@ -46,6 +47,7 @@ class UserController {
 
         const user = await UserModel.create({
             username,
+            name,
             password: passHash,
             birthday: parseISO(birthday),
             isActive: true

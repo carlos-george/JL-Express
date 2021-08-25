@@ -328,6 +328,7 @@ const Checklist = () => {
             values,
             carFleet,
             listChecks,
+            fleetWidth: qrSize
         }
         console.log('Values: ', data);
         api.post('/api/enviar-checklist', data).then(response => {

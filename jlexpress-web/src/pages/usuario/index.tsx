@@ -13,6 +13,7 @@ import { useMenu } from "../../context/MenuContext";
 
 type FormField = {
     _id?: string,
+    name: string,
     username: string,
     birthday: string,
     isActive: boolean,
@@ -27,6 +28,7 @@ export default function Usuario({ isAuthenticated }: UsuarioProps) {
     const { enqueueSnackbar } = useSnackbar();
 
     const initialValues = {
+        name: '',
         username: '',
         // birthday: (new Date()).toISOString().split('T').slice(0, -1).join('T'),
         birthday: format(new Date(), 'y-MM-dd'),
@@ -140,7 +142,6 @@ export default function Usuario({ isAuthenticated }: UsuarioProps) {
                     birthday: formatedDate
                 }
             });
-            console.log('Lista Usuários: ', newList);
             setUsuarios(newList);
             setIsLoadingEdit(false);
         });
@@ -237,6 +238,19 @@ export default function Usuario({ isAuthenticated }: UsuarioProps) {
                     <span>{currentDate}</span>
                 </div>
                 <form onSubmit={handleSubmiteForm}>
+                    <div className={classes.formGroup}>
+                        <div className={classes.inputGroup}>
+                            <input
+                                name="name"
+                                required
+                                type="text"
+                                value={values.name}
+                                placeholder="Nome"
+                                autoComplete="off"
+                                onChange={event => { handleOnChange(event) }}
+                            />
+                        </div>
+                    </div>
                     <div className={classes.formGroup}>
                         <div className={classes.inputGroup}>
                             <input

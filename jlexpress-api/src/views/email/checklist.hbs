@@ -55,11 +55,7 @@
       align-items: center;
     }
     main .fleet-layout .fleet-container {
-      width: 420px;
       position: relative;
-    }
-    main .fleet-layout .fleet-container img {
-      width: 420px;
     }
 
     main .headerLayout {
@@ -180,7 +176,7 @@
         <span>{{currentDate}}</span>
       </div>
       <div class="dados-veiculo">
-        <label>Responsável: <span>{{responsavel}}</span></label>
+        <label>Responsável: <span>{{responsible}}</span></label>
         <label>Veículo: <span>{{carFleet.modelo}}</span></label>
         <label>Placa: <span>{{carFleet.placa}}</span></label>
       </div>
@@ -195,7 +191,21 @@
                 src="../../../uploads/Kangoo.png"
                 alt="Kangoo"
                 class="car-layout"
+                style="width:{{fleetWidth}}px"
             />
+            {{#each listChecks}}
+                <img
+                  src="../../assets/x-mark.svg"
+                  alt="CHECK"
+                  style="
+                    width: 10px;
+                    position: absolute;
+                    z-index: 10;
+                    top: {{this.top}}px;
+                    left: {{this.left}}px;
+                  "
+                />
+            {{/each}}
         </div>
       </div>
 
