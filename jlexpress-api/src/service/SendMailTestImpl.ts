@@ -2,16 +2,12 @@ import nodemailer, { Transporter } from "nodemailer";
 import { join, resolve } from 'path';
 import fs from 'fs';
 import handlebars from "handlebars";
+import pdf from 'html-pdf';
+import { AppErrors } from '../errors/AppErrors';
+import SendMail, { Data } from "./SendMail";
 
-type Data = {
-    nome: string,
-    email: string,
-    telefone: string,
-    assunto: string,
-    mensagem: string
-}
 
-class SendMailService {
+class SendMailTestImpl implements SendMail {
 
     async execute(data: Data) {
 
@@ -30,9 +26,9 @@ class SendMailService {
             return transporter;
         });
 
-        const orcaMailPath = resolve(process.cwd(), 'src/views/emails');
+        const orcaMailPath = resolve(process.cwd(), 'src/views/email');
 
-        const templateFileContent = fs.readFileSync(join(orcaMailPath, 'orcamentoMail.hbs'), 'utf8');
+        const templateFileContent = fs.readFileSync(join(orcaMailPath, 'checklist.hbs'), 'utf8');
 
         const mailTemplateParse = handlebars.compile(templateFileContent);
 
@@ -40,17 +36,32 @@ class SendMailService {
 
         const message = await client.sendMail({
             to: process.env.USERMAIL ? process.env.USERMAIL : 'contatodf@jlexpress.com.br',
-            subject: data.assunto ? data.assunto : 'Orçamento',
+            subject: 'Checklist',
             html,
             from: process.env.USERMAIL ? process.env.USERMAIL : 'contatodf@jlexpress.com.br',
-            replyTo: data.email
         });
 
         console.log('Message sent: %s', message.messageId);
         console.log('Preview URL: %s', nodemailer.getTestMessageUrl(message));
     }
+
+    async createPDF(html: string) {
+
+        const options = {
+            type: 'pdf',
+            format: 'A4',
+            orientation: 'portrait'
+        }
+
+        pdf.create(html).toStream((err, stream) => {
+            if (err) return new AppErrors(err.message);
+
+            stream.pipe(fs.createWriteStream('./foo.pdf'));
+        });
+
+    }
 }
 
-export default new SendMailService();
+export default new SendMailTestImpl();
 
 

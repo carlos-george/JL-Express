@@ -7,6 +7,8 @@ import ptBR from 'date-fns/locale/pt-BR';
 import VeiculoModel from '../models/Veiculo';
 import UserModel from '../models/User';
 import { AppErrors } from "../errors/AppErrors";
+import SendMailGmailImpl from "../service/SendMailGmailImpl";
+import SendMail from "../service/SendMail";
 
 class VeiculoController {
 
@@ -129,9 +131,18 @@ class VeiculoController {
             }
         });
 
+        const imageFileName = carFleet.imagem.split('uploads/')[1];
+
+        const fileImgBase64 = fs.readFileSync(`uploads/${imageFileName}`, 'base64');
+
+        const newCarFleet = {
+            ...carFleet,
+            imagem: fileImgBase64
+        }
+
         const data = {
             values,
-            carFleet,
+            carFleet: newCarFleet,
             listChecks: newListChecks,
             currentDate,
             fleetWidth,
@@ -140,8 +151,17 @@ class VeiculoController {
 
         console.log('Data: ', data);
 
-        return response.status(200).json({ message: 'Checklist enviado com sucesso.' });
+        try {
+            const sendMail: SendMail = new SendMailGmailImpl();
+            await sendMail.execute(data);
+            return response.status(200).json({ message: 'Checklist enviado com sucesso.' });
+        } catch (error) {
+            console.error(error);
+            throw new AppErrors('Erro no envio do checklist.');
+        }
+
     }
+
 }
 
 export { VeiculoController }

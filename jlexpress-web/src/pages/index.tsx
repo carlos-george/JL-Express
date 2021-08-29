@@ -1,6 +1,4 @@
 import Image from 'next/image';
-import classes from './home.module.scss';
-import logo from '../../public/jlexpresslogo.png';
 import { useEffect, useRef, useState, FormEvent, ChangeEvent } from 'react';
 import { useMenu } from '../context/MenuContext';
 import { FaWhatsapp } from 'react-icons/fa';
@@ -8,6 +6,9 @@ import { useSnackbar } from 'notistack';
 import Loader from 'react-loader-spinner';
 import ReCAPTCHA from "react-google-recaptcha";
 import axios from 'axios';
+
+import classes from './home.module.scss';
+import logo from '../../public/jlexpresslogo.png';
 
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
